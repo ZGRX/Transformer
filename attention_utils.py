@@ -11,3 +11,4 @@ def scaled_dot_product_attention(query, key, value, query_mask=None, key_mask=No
         scores = scores.masked_fill(mask == 0, -float("inf"))
     weights = F.softmax(scores, dim=-1)
     return torch.bmm(weights, value)
+
